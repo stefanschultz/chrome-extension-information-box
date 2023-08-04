@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Chrome Extensions with React and Webpack",
-    "description": "A chrome extension boilerplate built with React , Webpack and Webpack Dev Server.",
+    "name": "Information Box",
+    "description": "The Chrome Extension Information Box is a small tool that helps you to get displayed useful information in your Browser.",
     "version": "1.0.0",
     "action": {
         "default_popup": "popup.html",
-        "default_title": "React Boilerplate",
+        "default_title": "Information Box",
         "default_icon": "icon.png"
     },
     "chrome_url_overrides": {

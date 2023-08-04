@@ -1,1 +1,1 @@
-# chrome-extension-information-box
+# Chrome Extension "Information Box"
