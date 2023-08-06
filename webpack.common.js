@@ -26,13 +26,13 @@ var alias = {};
 
 module.exports = {
     entry: {
-        popup: path.resolve("src/pages/popup/components/index.tsx"),
-        options: path.resolve("src/pages/options/components/index.tsx"),
+        /* popup: path.resolve("src/pages/popup/components/index.tsx"), */
+        /* options: path.resolve("src/pages/options/components/index.tsx"), */
         background: path.resolve("src/pages/background/background.ts"),
-        contentScript: path.resolve("src/pages/contentScript/index.ts"),
-        newtab: path.resolve("src/pages/newtab/components/index.tsx"),
-        devtools: path.resolve("src/pages/devtools/index.ts"),
-        panel: path.resolve("src/pages/panel/components/index.tsx")
+        contentScript: path.resolve("src/pages/contentScript/index.tsx"),
+        /* newtab: path.resolve("src/pages/newtab/components/index.tsx"), */
+        /* devtools: path.resolve("src/pages/devtools/index.ts"), */
+        /* panel: path.resolve("src/pages/panel/components/index.tsx") */
     },
 
     module: {
@@ -132,11 +132,11 @@ module.exports = {
             ],
         }),
         ...getHtmlPlugins([
-            "popup",
-            "options",
-            "newtab",
-            "devtools",
-            "panel"
+            /* "popup", */
+            /* "options", */
+            /* "newtab", */
+            /* "devtools", */
+            /* "panel" */
         ]),
         new ZipWebpackPlugin({
             filename: `${packageInfo.name}-${packageInfo.version}.zip`,
@@ -158,9 +158,9 @@ module.exports = {
     },
 
     optimization: {
-        splitChunks: {
+        /* splitChunks: {
             chunks: "all"
-        }
+        } */
     }
 }
 

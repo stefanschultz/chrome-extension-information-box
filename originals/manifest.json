@@ -4,16 +4,29 @@
     "description": "The Chrome Extension Information Box is a small tool that helps you to get displayed useful information in your Browser.",
     "version": "1.0.0",
     "action": {
+        "default_popup": "popup.html",
         "default_title": "Information Box",
         "default_icon": "icon.png"
     },
-    "permissions": ["activeTab", "scripting"],
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "permissions": ["tabs", "bookmarks", "storage", "identity"],
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
         "128": "icon.png"
     },
+    "options_page": "options.html",
     "background": {
         "service_worker": "background.bundle.js"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+            "js": ["contentScript.bundle.js"],
+            "css": ["content.styles.css"]
+        }
+    ],
+    "devtools_page": "devtools.html"
 }

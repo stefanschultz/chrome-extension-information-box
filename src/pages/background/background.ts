@@ -1,7 +1,6 @@
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    console.log(msg);
-    console.log(sender);
-    sendResponse("Response from the background script.");
+chrome.action.onClicked.addListener((tab) => {
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ["contentScript.bundle.js"],
+    });
 });
-
-console.log("This is the background script.");
