@@ -1,11 +1,9 @@
 import React from "react";
 
+import "../styles/InformationBox.styles.css";
+
 const InformationBox = () => {
-    return (
-        <div className="InformationBoxContainer">
-            <h1>Information Box</h1>
-        </div>
-    );
+    return <div className="InformationBoxContainer">Information Box</div>;
 };
 
 export default InformationBox;
