@@ -26,7 +26,6 @@ const initApplication = () => {
             body.prepend(rootElement);
 
             const container = document.getElementById(ID);
-            console.log("container", container);
             const root = createRoot(container!);
             root.render(
                 <React.StrictMode>
