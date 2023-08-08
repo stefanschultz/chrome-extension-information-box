@@ -1,3 +1,3 @@
 export const Configuration = {
-    EXTENSION_ID: "application-extension-stansz-information-box",
+    EXTENSION_ID: "application-extension-stansz-werkzeugbox",
 };

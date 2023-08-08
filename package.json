@@ -1,8 +1,8 @@
 {
-  "name": "chrome-extension-information-box",
+  "name": "chrome-extension-werkzeugbox",
   "author": "Schultz Software (Stefan Schultz)",
   "version": "1.0.0",
-  "description": "The Chrome Extension Information Box is a small tool that helps you to get displayed useful information in your Browser.",
+  "description": "The Chrome Extension Werkzeugbox is a small tool that helps you to get displayed useful information and use small tools in your Browser.",
   "license": "ISC",
   "main": "index.js",
   "scripts": {

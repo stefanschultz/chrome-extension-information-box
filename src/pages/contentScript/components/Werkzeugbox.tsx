@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Configuration } from "../constants/Config";
-import "../styles/InformationBox.styles.css";
+import "../styles/Werkzeugbox.styles.css";
 import Accordion from "./Accordion";
-import MouseMoveAndPosition from "./MouseMoveAndPosition";
+import MouseTool from "./MouseTool";
 
-const InformationBox = () => {
+const Werkzeugbox = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
@@ -21,7 +21,7 @@ const InformationBox = () => {
     ) => {
         if (isDragging) {
             const container = document.querySelector(
-                ".information-box-container",
+                ".werkzeugbox-container",
             ) as HTMLElement; // Cast to HTMLElement
             if (container) {
                 container.style.left = `${event.clientX - dragOffset.x}px`;
@@ -41,15 +41,15 @@ const InformationBox = () => {
 
     return (
         <div
-            className="information-box-container"
+            className="werkzeugbox-container"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
         >
-            <div className="information-box-header">
-                <div className="information-box-title">Information Box</div>
+            <div className="werkzeugbox-header">
+                <div className="werkzeugbox-title">Werkzeugbox</div>
                 <div
-                    className="information-box-close"
+                    className="werkzeugbox-close"
                     onClick={handleCloseExtension}
                 >
                     X
@@ -58,8 +58,8 @@ const InformationBox = () => {
             <Accordion
                 accordionItems={[
                     {
-                        headerTitle: "Mouse position",
-                        content: <MouseMoveAndPosition />,
+                        headerTitle: "Mouse Tool",
+                        content: <MouseTool />,
                     },
                 ]}
                 activeIndexes={[0]}
@@ -68,29 +68,4 @@ const InformationBox = () => {
     );
 };
 
-/* export default InformationBox;
-            onMouseUp={handleMouseUp}
-        >
-            <div className="information-box-header">
-                <div className="information-box-title">Information Box</div>
-                <div
-                    className="information-box-close"
-                    onClick={handleCloseExtension}
-                >
-                    X
-                </div>
-            </div>
-            <Accordion
-                accordionItems={[
-                    {
-                        headerTitle: "Mouse position",
-                        content: <MouseMoveAndPosition />,
-                    },
-                ]}
-                activeIndexes={[0]}
-            />
-        </div>
-    );
-}; */
-
-export default InformationBox;
+export default Werkzeugbox;

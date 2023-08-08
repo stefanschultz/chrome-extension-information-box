@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
-    "name": "Information Box",
-    "description": "The Chrome Extension Information Box is a small tool that helps you to get displayed useful information in your Browser.",
+    "name": "Werkzeugbox",
+    "description": "The Chrome Extension Werkzeugbox is a small tool that helps you to get displayed useful information and use small tools in your Browser.",
     "version": "1.0.0",
     "action": {
-        "default_title": "Information Box",
+        "default_title": "Werkzeugbox",
         "default_icon": "icon.png"
     },
     "permissions": ["activeTab", "scripting"],

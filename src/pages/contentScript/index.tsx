@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import InformationBox from "./components/InformationBox";
+import Werkzeugbox from "./components/Werkzeugbox";
 import { Configuration } from "./constants/Config";
 
 const initApplication = () => {
@@ -29,7 +29,7 @@ const initApplication = () => {
             const root = createRoot(container!);
             root.render(
                 <React.StrictMode>
-                    <InformationBox />
+                    <Werkzeugbox />
                 </React.StrictMode>,
             );
         }

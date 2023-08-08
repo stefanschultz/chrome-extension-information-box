@@ -1,4 +1,4 @@
-.information-box-container {
+.werkzeugbox-container {
     position: absolute;
     width: 30rem;
     height: 15rem;
@@ -18,7 +18,7 @@
     user-select: none;
 }
 
-.information-box-header {
+.werkzeugbox-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,12 +30,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.information-box-title {
+.werkzeugbox-title {
     font-size: 1rem;
     font-weight: bold;
 }
 
-.information-box-close {
+.werkzeugbox-close {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
@@ -49,7 +49,7 @@
     padding: 0.5rem;
 }
 
-.panel-container-mousemoveandposition {
+.panel-container-mouse-tool {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -57,7 +57,7 @@
     align-items: center;
 }
 
-.panel-container-mousemoveandposition > div {
+.panel-container-mouse-tool > div {
     background-color: #f2f2f2;
     padding: 10px;
     border-radius: 5px;

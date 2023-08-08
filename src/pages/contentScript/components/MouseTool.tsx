@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../styles/InformationBox.styles.css";
+import "../styles/Werkzeugbox.styles.css";
 
-const MouseMoveAndPosition = () => {
+const MouseTool = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [mouseButton, setMouseButton] = useState("");
 
@@ -37,7 +37,7 @@ const MouseMoveAndPosition = () => {
     }, []);
 
     return (
-        <div className="panel-container-mousemoveandposition">
+        <div className="panel-container-mouse-tool">
             <div>X: {mousePosition.x}</div>
             <div>Y: {mousePosition.y}</div>
             <div>Button: {mouseButton}</div>
@@ -45,4 +45,4 @@ const MouseMoveAndPosition = () => {
     );
 };
 
-export default MouseMoveAndPosition;
+export default MouseTool;

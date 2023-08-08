@@ -1,1 +1,1 @@
-# Chrome Extension "Information Box"
+# Chrome Extension "Werkzeugbox"
