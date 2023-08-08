@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Configuration } from "../constants/Config";
 import "../styles/Werkzeugbox.styles.css";
 import Accordion from "./Accordion";
+import KeyboardTool from "./KeyboardTool";
 import MouseTool from "./MouseTool";
 
 const Werkzeugbox = () => {
@@ -61,8 +62,12 @@ const Werkzeugbox = () => {
                         headerTitle: "Mouse Tool",
                         content: <MouseTool />,
                     },
+                    {
+                        headerTitle: "Keyboard Tool",
+                        content: <KeyboardTool />,
+                    },
                 ]}
-                activeIndexes={[0]}
+                activeIndexes={[]}
             />
         </div>
     );
