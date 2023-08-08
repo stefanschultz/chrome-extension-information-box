@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 import "../styles/InformationBox.styles.css";
+import Accordion from "./Accordion";
+import MouseMoveAndPosition from "./MouseMoveAndPosition";
 
 const InformationBox = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-        setMousePosition({ x: event.clientX, y: event.clientY });
-    };
-
     return (
-        <div className="InformationBoxContainer" onMouseMove={handleMouseMove}>
-            <div>Mouse position:</div>
-            <div>X: {mousePosition.x}</div>
-            <div>Y: {mousePosition.y}</div>
+        <div className="information-box-container">
+            <Accordion
+                accordionItems={[
+                    {
+                        headerTitle: "Mouse position",
+                        content: <MouseMoveAndPosition />,
+                    },
+                ]}
+                activeIndexes={[0]}
+            />
         </div>
     );
 };
