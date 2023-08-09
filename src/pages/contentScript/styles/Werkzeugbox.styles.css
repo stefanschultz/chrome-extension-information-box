@@ -66,6 +66,18 @@
     gap: 10px;
 }
 
+.panel-container-as-grid-1x {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.panel-container-as-grid-1x > div {
+    background-color: rgba(242, 242, 242, 1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .panel-container-as-grid-2x {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

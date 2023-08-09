@@ -55,12 +55,12 @@ const MouseTool = () => {
     return (
         <div className="panel-container-as-grid-group-column">
             <div className="panel-container-as-grid-2x">
-                <div>X: {mousePosition.x}</div>
-                <div>Y: {mousePosition.y}</div>
+                <div>{`X: ` + mousePosition.x}</div>
+                <div>{`Y: ` + mousePosition.y}</div>
             </div>
             <div className="panel-container-as-grid-2x">
-                <div>Button: {mouseButton}</div>
-                <div>Click: {mouseClick}</div>
+                <div>{`Button: ` + mouseButton}</div>
+                <div>{`Click: ` + mouseClick}</div>
             </div>
         </div>
     );

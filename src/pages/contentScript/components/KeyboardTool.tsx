@@ -20,8 +20,8 @@ const KeyboardTool = () => {
 
     return (
         <div className="panel-container-as-grid-2x">
-            <div>Last Key Pressed: {lastKey}</div>
-            <div>Key Code: {lastKeyCode}</div>
+            <div>{`Last Key Pressed: ` + lastKey}</div>
+            <div>{`Key Code: ` + lastKeyCode}</div>
         </div>
     );
 };

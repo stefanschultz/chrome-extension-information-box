@@ -4,6 +4,7 @@ import "../styles/Werkzeugbox.styles.css";
 import Accordion from "./Accordion";
 import KeyboardTool from "./KeyboardTool";
 import MouseTool from "./MouseTool";
+import ScreenTool from "./ScreenTool";
 
 const Werkzeugbox = () => {
     const [isDragging, setIsDragging] = useState(false);
@@ -59,12 +60,24 @@ const Werkzeugbox = () => {
             <Accordion
                 accordionItems={[
                     {
+                        headerTitle: "AI Generative Tool",
+                        content: <></>,
+                    },
+                    {
+                        headerTitle: "Screen Tool",
+                        content: <ScreenTool />,
+                    },
+                    {
                         headerTitle: "Mouse Tool",
                         content: <MouseTool />,
                     },
                     {
                         headerTitle: "Keyboard Tool",
                         content: <KeyboardTool />,
+                    },
+                    {
+                        headerTitle: "HTML Meta Tool",
+                        content: <></>,
                     },
                 ]}
                 activeIndexes={[]}
