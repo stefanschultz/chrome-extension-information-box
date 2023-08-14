@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Configuration } from "../constants/Config";
 import "../styles/Werkzeugbox.styles.css";
 import Accordion from "./Accordion";
+import HtmlMetaTagAnalyzerTool from "./HtmlMetaTagAnalyzerTool";
 import KeyboardTool from "./KeyboardTool";
 import MouseTool from "./MouseTool";
 import ScreenTool from "./ScreenTool";
@@ -76,8 +77,8 @@ const Werkzeugbox = () => {
                         content: <KeyboardTool />,
                     },
                     {
-                        headerTitle: "HTML Meta Tool",
-                        content: <></>,
+                        headerTitle: "HTML - Meta Tag Analyzer Tool",
+                        content: <HtmlMetaTagAnalyzerTool url={document.URL} />,
                     },
                 ]}
                 activeIndexes={[]}
