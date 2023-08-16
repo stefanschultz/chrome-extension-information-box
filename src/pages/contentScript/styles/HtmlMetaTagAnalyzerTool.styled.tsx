@@ -9,6 +9,7 @@ export const MetaTagAnalyzer = styled.div`
 export const MetaTagAnalyzerTitle = styled.div`
     font-size: 1.1rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 `;
 
 export const MetaTagList = styled.ul`
@@ -20,8 +21,11 @@ export const MetaTagList = styled.ul`
 export const MetaTagListItem = styled.li`
     margin-bottom: 1.5rem;
 
-    & strong {
-        font-weight: bold;
-        margin-bottom: 1.2rem;
+    & > div {
+        padding: 0 1.5rem 0 1.5rem;
+
+        & > strong {
+            font-weight: bold;
+        }
     }
 `;
