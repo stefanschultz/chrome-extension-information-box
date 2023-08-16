@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../styles/Werkzeugbox.styles.css";
+import {
+    PanelContainerAsGrid2x,
+    PanelContainerAsGridGroupColumn,
+    PanelItem,
+} from "../styles/Panels.styled";
 
 const MouseTool = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -53,16 +57,16 @@ const MouseTool = () => {
     }, []);
 
     return (
-        <div className="panel-container-as-grid-group-column">
-            <div className="panel-container-as-grid-2x">
-                <div>{`X: ` + mousePosition.x}</div>
-                <div>{`Y: ` + mousePosition.y}</div>
-            </div>
-            <div className="panel-container-as-grid-2x">
-                <div>{`Button: ` + mouseButton}</div>
-                <div>{`Click: ` + mouseClick}</div>
-            </div>
-        </div>
+        <PanelContainerAsGridGroupColumn>
+            <PanelContainerAsGrid2x>
+                <PanelItem>{`X: ` + mousePosition.x}</PanelItem>
+                <PanelItem>{`Y: ` + mousePosition.y}</PanelItem>
+            </PanelContainerAsGrid2x>
+            <PanelContainerAsGrid2x>
+                <PanelItem>{`Button: ` + mouseButton}</PanelItem>
+                <PanelItem>{`Click: ` + mouseClick}</PanelItem>
+            </PanelContainerAsGrid2x>
+        </PanelContainerAsGridGroupColumn>
     );
 };
 

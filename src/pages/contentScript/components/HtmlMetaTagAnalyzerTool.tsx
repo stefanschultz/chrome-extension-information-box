@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {
+    MetaTagAnalyzer,
+    MetaTagAnalyzerTitle,
+    MetaTagList,
+    MetaTagListItem,
+} from "../styles/HtmlMetaTagAnalyzerTool.styled";
 
 interface MetaTag {
     name: string;
@@ -33,24 +39,26 @@ const HtmlMetaTagAnalyzerTool: React.FC<{ url: string }> = ({ url }) => {
     );
 
     return (
-        <div className="meta-tag-analyzer">
-            <h6>Meta Tags:</h6>
-            <ul className="meta-tag-list">
+        <MetaTagAnalyzer>
+            <MetaTagAnalyzerTitle>Meta Tags:</MetaTagAnalyzerTitle>
+            <MetaTagList>
                 {metaTags.map((tag, index) => (
-                    <li key={index} className="meta-tag-item">
-                        <strong>{tag.name}</strong>: {tag.content}
-                    </li>
+                    <MetaTagListItem key={index}>
+                        <strong>{tag.name}:</strong>
+                        <div>{tag.content}</div>
+                    </MetaTagListItem>
                 ))}
-            </ul>
-            <h6>Open Graph Tags:</h6>
-            <ul className="meta-tag-list">
+            </MetaTagList>
+            <MetaTagAnalyzerTitle>Open Graph Tags:</MetaTagAnalyzerTitle>
+            <MetaTagList>
                 {openGraphTags.map((tag, index) => (
-                    <li key={index} className="meta-tag-item">
-                        <strong>{tag.name}</strong>: {tag.content}
-                    </li>
+                    <MetaTagListItem key={index}>
+                        <strong>{tag.name}:</strong>
+                        <div>{tag.content}</div>
+                    </MetaTagListItem>
                 ))}
-            </ul>
-        </div>
+            </MetaTagList>
+        </MetaTagAnalyzer>
     );
 };
 

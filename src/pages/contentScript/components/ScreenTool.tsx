@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {
+    PanelContainerAsGrid1x,
+    PanelContainerAsGrid2x,
+    PanelContainerAsGridGroupColumn,
+    PanelItem,
+} from "../styles/Panels.styled";
 
 const ScreenTool = () => {
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
@@ -48,42 +54,46 @@ const ScreenTool = () => {
     };
 
     return (
-        <div className="panel-container-as-grid-group-column">
-            <div className="panel-container-as-grid-2x">
-                <div>{`Screen Width: ` + screenSize.width} px</div>
-                <div>{`Screen Height: ` + screenSize.height} px</div>
-            </div>
-            <div className="panel-container-as-grid-2x">
-                <div>{`Pixel Density: ` + pixelDensity}</div>
-                <div>{`Color Depth: ` + colorDepth}</div>
-            </div>
-            <div className="panel-container-as-grid-1x">
-                <div>{`Screen Orientation: ` + screenOrientation}</div>
-            </div>
-            <div className="panel-container-as-grid-1x">
-                <div>
+        <PanelContainerAsGridGroupColumn>
+            <PanelContainerAsGrid2x>
+                <PanelItem>{`Screen Width: ` + screenSize.width} px</PanelItem>
+                <PanelItem>
+                    {`Screen Height: ` + screenSize.height} px
+                </PanelItem>
+            </PanelContainerAsGrid2x>
+            <PanelContainerAsGrid2x>
+                <PanelItem>{`Pixel Density: ` + pixelDensity}</PanelItem>
+                <PanelItem>{`Color Depth: ` + colorDepth}</PanelItem>
+            </PanelContainerAsGrid2x>
+            <PanelContainerAsGrid1x>
+                <PanelItem>
+                    {`Screen Orientation: ` + screenOrientation}
+                </PanelItem>
+            </PanelContainerAsGrid1x>
+            <PanelContainerAsGrid1x>
+                <PanelItem>
                     {`Screen Resolution: ` +
                         screenResolution.width +
                         ` x ` +
                         screenResolution.height +
                         ` px`}
-                </div>
-            </div>
-            <div className="panel-container-as-grid-1x">
-                <div>
+                </PanelItem>
+            </PanelContainerAsGrid1x>
+            <PanelContainerAsGrid1x>
+                <PanelItem>
                     {`Available Screen Space: ` +
                         availableScreenSpace.width +
                         ` x ` +
                         availableScreenSpace.height +
                         ` px`}
-                </div>
-            </div>
-            <div className="panel-container-as-grid-1x">
-                <div>
+                </PanelItem>
+            </PanelContainerAsGrid1x>
+            <PanelContainerAsGrid1x>
+                <PanelItem>
                     {`Wide Color Gamut: ` + (wideColorGamut ? "Yes" : "No")}
-                </div>
-            </div>
-        </div>
+                </PanelItem>
+            </PanelContainerAsGrid1x>
+        </PanelContainerAsGridGroupColumn>
     );
 };
 

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import "../styles/Accordion.styles.css";
+import {
+    AccordionContainer,
+    AccordionContent,
+    AccordionHeader,
+    AccordionIcon,
+    AccordionItem,
+} from "../styles/Accordion.styled";
 
 interface IAccordionItem {
     headerTitle: string;
@@ -16,7 +22,7 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
         props.activeIndexes,
     );
 
-    const handleToggleAccordion = (index) => {
+    const handleToggleAccordion = (index: any) => {
         if (activeIndexes.includes(index)) {
             setActiveIndexes(activeIndexes.filter((i) => i !== index));
         } else {
@@ -25,38 +31,29 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
     };
 
     return (
-        <div className="accordion">
+        <AccordionContainer>
             {props.accordionItems.map((item, index) => {
                 return (
-                    <>
-                        <div
-                            className={`accordion-item ${
-                                activeIndexes.includes(index) ? "" : "collapsed"
-                            }`}
+                    <AccordionItem>
+                        <AccordionHeader
+                            onClick={() => handleToggleAccordion(index)}
                         >
-                            <div
-                                className="accordion-header"
-                                onClick={() => handleToggleAccordion(index)}
+                            <span>{item.headerTitle}</span>
+                            <AccordionIcon
+                                isRotate={activeIndexes.includes(index)}
                             >
-                                <span>{item.headerTitle}</span>
-                                <span
-                                    className={`accordion-icon ${
-                                        activeIndexes.includes(index)
-                                            ? "rotate"
-                                            : ""
-                                    }`}
-                                >
-                                    &#x25BC;
-                                </span>
-                            </div>
-                            <div className="accordion-content">
-                                {item.content}
-                            </div>
-                        </div>
-                    </>
+                                &#x25BC;
+                            </AccordionIcon>
+                        </AccordionHeader>
+                        <AccordionContent
+                            isCollapsed={!activeIndexes.includes(index)}
+                        >
+                            {item.content}
+                        </AccordionContent>
+                    </AccordionItem>
                 );
             })}
-        </div>
+        </AccordionContainer>
     );
 };
 

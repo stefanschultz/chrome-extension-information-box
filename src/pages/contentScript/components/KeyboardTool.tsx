@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/Werkzeugbox.styles.css";
+import { PanelContainerAsGrid2x, PanelItem } from "../styles/Panels.styled";
 
 const KeyboardTool = () => {
     const [lastKey, setLastKey] = useState("");
@@ -19,10 +19,10 @@ const KeyboardTool = () => {
     }, []);
 
     return (
-        <div className="panel-container-as-grid-2x">
-            <div>{`Last Key Pressed: ` + lastKey}</div>
-            <div>{`Key Code: ` + lastKeyCode}</div>
-        </div>
+        <PanelContainerAsGrid2x>
+            <PanelItem>{`Last Key Pressed: ` + lastKey}</PanelItem>
+            <PanelItem>{`Key Code: ` + lastKeyCode}</PanelItem>
+        </PanelContainerAsGrid2x>
     );
 };
 

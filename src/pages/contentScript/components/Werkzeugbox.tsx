@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Configuration } from "../constants/Config";
-import "../styles/Werkzeugbox.styles.css";
+import {
+    WerkzeugboxClose,
+    WerkzeugboxContainer,
+    WerkzeugboxHeader,
+    WerkzeugboxTitle,
+} from "../styles/Werkzeugbox.styled";
 import Accordion from "./Accordion";
 import HtmlMetaTagAnalyzerTool from "./HtmlMetaTagAnalyzerTool";
 import KeyboardTool from "./KeyboardTool";
@@ -43,21 +48,17 @@ const Werkzeugbox = () => {
     };
 
     return (
-        <div
-            className="werkzeugbox-container"
+        <WerkzeugboxContainer
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
         >
-            <div className="werkzeugbox-header">
-                <div className="werkzeugbox-title">Werkzeugbox</div>
-                <div
-                    className="werkzeugbox-close"
-                    onClick={handleCloseExtension}
-                >
+            <WerkzeugboxHeader>
+                <WerkzeugboxTitle>Werkzeugbox</WerkzeugboxTitle>
+                <WerkzeugboxClose onClick={handleCloseExtension}>
                     X
-                </div>
-            </div>
+                </WerkzeugboxClose>
+            </WerkzeugboxHeader>
             <Accordion
                 accordionItems={[
                     {
@@ -83,7 +84,7 @@ const Werkzeugbox = () => {
                 ]}
                 activeIndexes={[]}
             />
-        </div>
+        </WerkzeugboxContainer>
     );
 };
 
