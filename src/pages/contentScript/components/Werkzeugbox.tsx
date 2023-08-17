@@ -8,6 +8,7 @@ import {
 } from "../styles/Werkzeugbox.styled";
 import Accordion from "./Accordion";
 import HtmlMetaTagAnalyzerTool from "./HtmlMetaTagAnalyzerTool";
+import HtmlTagTreeTool from "./HtmlTagTreeTool";
 import KeyboardTool from "./KeyboardTool";
 import MouseTool from "./MouseTool";
 import ScreenTool from "./ScreenTool";
@@ -78,8 +79,12 @@ const Werkzeugbox = () => {
                         content: <KeyboardTool />,
                     },
                     {
-                        headerTitle: "HTML - Meta Tag Analyzer Tool",
+                        headerTitle: "HTML Meta Tag Analyzer Tool",
                         content: <HtmlMetaTagAnalyzerTool url={document.URL} />,
+                    },
+                    {
+                        headerTitle: "HTML Tag Tree Tool",
+                        content: <HtmlTagTreeTool />,
                     },
                 ]}
                 activeIndexes={[]}

@@ -40,20 +40,6 @@ const HtmlMetaTagAnalyzerTool: React.FC<{ url: string }> = ({ url }) => {
                             ? tag.getAttribute("content") ?? undefined
                             : undefined,
                     } as IMetaTag;
-
-                    /* return {
-                        otherAttributeName: tag.getAttribute("name")
-                            ? "name"
-                            : tag.getAttribute("property")
-                            ? "property"
-                            : "",
-                        otherAttributeContent:
-                            tag.getAttribute("name") ||
-                            tag.getAttribute("property") ||
-                            "",
-                        contentAttribute:
-                            tag.getAttribute("content") || "",
-                    } as IMetaTag; */
                 },
             );
 

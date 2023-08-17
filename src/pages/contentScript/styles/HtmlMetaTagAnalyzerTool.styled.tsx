@@ -22,8 +22,6 @@ export const MetaTagListItem = styled.li`
     margin-bottom: 1.5rem;
 
     & > div {
-        padding: 0 1.5rem 0 1.5rem;
-
         & > strong {
             font-weight: bold;
         }

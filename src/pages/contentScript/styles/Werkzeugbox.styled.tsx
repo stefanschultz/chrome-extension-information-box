@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const WerkzeugboxContainer = styled.div`
     position: absolute;
-    width: 30rem;
-    height: 20rem;
-    max-width: 30rem;
-    max-height: 20rem;
+    min-width: 480px;
+    min-height: 320px;
+    width: 480px;
+    height: 320px;
     padding: 0.25rem;
     top: 2rem;
     right: 2rem;
@@ -17,9 +17,8 @@ export const WerkzeugboxContainer = styled.div`
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     z-index: 99999;
     font-size: 0.8rem;
+    font-family: sans-serif;
     user-select: none;
-
-    font: sans-serif;
 `;
 
 export const WerkzeugboxHeader = styled.div`

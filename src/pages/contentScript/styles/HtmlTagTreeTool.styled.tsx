@@ -1,0 +1,95 @@
+import styled from "styled-components";
+
+export const StyledPre = styled.pre`
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    div {
+        margin-left: 20px;
+    }
+
+    div:first-child {
+        margin-left: 0;
+    }
+
+    span {
+        color: black;
+    }
+
+    .attribute {
+        color: #0086b3;
+    }
+
+    .value {
+        color: #690;
+    }
+`;
+
+export const Tag = styled.span`
+    color: black;
+`;
+
+export const Attribute = styled.span`
+    color: #0086b3;
+`;
+
+export const Value = styled.span`
+    color: #690;
+`;
+
+export const Button = styled.button`
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background-color: #3e8e41;
+    }
+
+    &:active {
+        background-color: #3e8e41;
+    }
+`;
+
+export const SuccessMessage = styled.div`
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+`;
+
+export const Spinner = styled.div`
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+`;
+
+export const SearchBar = styled.input`
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+`;
