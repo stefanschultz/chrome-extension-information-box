@@ -7,7 +7,7 @@
         "default_title": "Werkzeugbox",
         "default_icon": "icon.png"
     },
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["activeTab", "scripting", "storage"],
     "icons": {
         "16": "icon.png",
         "48": "icon.png",
@@ -15,5 +15,12 @@
     },
     "background": {
         "service_worker": "background.bundle.js"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://extensionpay.com/*"],
+            "js": ["contentScript.bundle.js"],
+            "run_at": "document_start"
+        }
+    ]
 }

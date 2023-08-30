@@ -19,6 +19,10 @@ export const AccordionHeader = styled.div`
     position: relative;
 `;
 
+export const AccordionTitle = styled.span`
+    color: rgba(0, 57, 128, 1);
+`;
+
 export const AccordionIcon = styled.span<{ isRotate: boolean }>`
     position: absolute;
     top: 50%;

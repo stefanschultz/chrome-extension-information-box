@@ -5,16 +5,19 @@ import {
     AccordionHeader,
     AccordionIcon,
     AccordionItem,
+    AccordionTitle,
 } from "../styles/Accordion.styled";
 
 interface IAccordionItem {
     headerTitle: string;
     content: React.ReactNode;
+    premiumFeature: boolean;
 }
 
 interface IAccordionProps {
     accordionItems: IAccordionItem[];
     activeIndexes: number[];
+    isFeatureEnabled: boolean;
 }
 
 const Accordion: React.FC<IAccordionProps> = (props) => {
@@ -38,7 +41,15 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
                         <AccordionHeader
                             onClick={() => handleToggleAccordion(index)}
                         >
-                            <span>{item.headerTitle}</span>
+                            <span>
+                                <AccordionTitle>
+                                    {item.headerTitle}
+                                </AccordionTitle>
+                                {!props.isFeatureEnabled &&
+                                item.premiumFeature ? (
+                                    <i> [PREMIUM FEATURE]</i>
+                                ) : undefined}
+                            </span>
                             <AccordionIcon
                                 isRotate={activeIndexes.includes(index)}
                             >
@@ -48,7 +59,11 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
                         <AccordionContent
                             isCollapsed={!activeIndexes.includes(index)}
                         >
-                            {item.content}
+                            {!item.premiumFeature
+                                ? item.content
+                                : props.isFeatureEnabled
+                                ? item.content
+                                : "Please subscribe or login to use this feature."}
                         </AccordionContent>
                     </AccordionItem>
                 );

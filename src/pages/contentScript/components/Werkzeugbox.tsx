@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import ExtPay from "extpay";
+import React, { useEffect, useState } from "react";
 import { Configuration } from "../constants/Config";
+import { SubscriptionStatus } from "../constants/ExtensionPayConstants";
+import { useExtensionStore } from "../stores/ExtensionStore";
+import { PrimaryButton } from "../styles/Common.styled";
 import {
+    ButtonContainer,
     WerkzeugboxClose,
     WerkzeugboxContainer,
     WerkzeugboxHeader,
@@ -12,10 +17,27 @@ import HtmlTagTreeTool from "./HtmlTagTreeTool";
 import KeyboardTool from "./KeyboardTool";
 import MouseTool from "./MouseTool";
 import ScreenTool from "./ScreenTool";
+import Settings from "./Settings";
 
 const Werkzeugbox = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+    const [left, setLeft] = useState("2rem");
+    const [top, setTop] = useState("2rem");
+    const extensionStore = useExtensionStore();
+    const extpay = ExtPay("chrome-extension-werkzeugbox");
+
+    useEffect(() => {
+        extpay
+            .getUser()
+            .then((user) => {
+                extensionStore.setHasUserPaid(user.paid);
+                extensionStore.setSubscriptionStatus(user.subscriptionStatus);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }, []);
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
         setIsDragging(true);
@@ -29,13 +51,8 @@ const Werkzeugbox = () => {
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         if (isDragging) {
-            const container = document.querySelector(
-                ".werkzeugbox-container",
-            ) as HTMLElement; // Cast to HTMLElement
-            if (container) {
-                container.style.left = `${event.clientX - dragOffset.x}px`;
-                container.style.top = `${event.clientY - dragOffset.y}px`;
-            }
+            setLeft(`${event.clientX - dragOffset.x}px`);
+            setTop(`${event.clientY - dragOffset.y}px`);
         }
     };
 
@@ -48,11 +65,28 @@ const Werkzeugbox = () => {
         if (rootElement) rootElement.style.display = "none";
     };
 
+    const handleRemoveExtension = () => {
+        const rootElement = document.getElementById(Configuration.EXTENSION_ID);
+        if (rootElement) rootElement.remove();
+    };
+
+    const handleOpenPaymentPage = () => {
+        extpay.openPaymentPage();
+        handleRemoveExtension();
+    };
+
+    const handleOpenLoginPage = () => {
+        extpay.openLoginPage();
+        handleRemoveExtension();
+    };
+
     return (
         <WerkzeugboxContainer
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            left={left}
+            top={top}
         >
             <WerkzeugboxHeader>
                 <WerkzeugboxTitle>Werkzeugbox</WerkzeugboxTitle>
@@ -60,31 +94,67 @@ const Werkzeugbox = () => {
                     X
                 </WerkzeugboxClose>
             </WerkzeugboxHeader>
+            {!extensionStore.hasUserPaid && (
+                <ButtonContainer>
+                    <PrimaryButton
+                        onClick={handleOpenPaymentPage}
+                        title="Subscribe Now"
+                        type="button"
+                    >
+                        Subscribe Now
+                    </PrimaryButton>
+                </ButtonContainer>
+            )}
+            {extensionStore.hasUserPaid &&
+                extensionStore.subscriptionStatus &&
+                extensionStore.subscriptionStatus !==
+                    SubscriptionStatus.active && (
+                    <ButtonContainer>
+                        <PrimaryButton
+                            onClick={handleOpenLoginPage}
+                            title="Login"
+                            type="button"
+                        >
+                            Subscribe Now
+                        </PrimaryButton>
+                    </ButtonContainer>
+                )}
             <Accordion
+                isFeatureEnabled={
+                    extensionStore.hasUserPaid &&
+                    extensionStore.subscriptionStatus ===
+                        SubscriptionStatus.active
+                }
                 accordionItems={[
                     {
-                        headerTitle: "AI Generative Tool",
-                        content: <></>,
-                    },
-                    {
-                        headerTitle: "Screen Tool",
+                        headerTitle: "Screen",
                         content: <ScreenTool />,
+                        premiumFeature: false,
                     },
                     {
-                        headerTitle: "Mouse Tool",
+                        headerTitle: "Mouse",
                         content: <MouseTool />,
+                        premiumFeature: false,
                     },
                     {
-                        headerTitle: "Keyboard Tool",
+                        headerTitle: "Keyboard",
                         content: <KeyboardTool />,
+                        premiumFeature: false,
                     },
                     {
-                        headerTitle: "HTML Meta Tag Analyzer Tool",
+                        headerTitle: "HTML Meta Tag Analyzer",
                         content: <HtmlMetaTagAnalyzerTool url={document.URL} />,
+                        premiumFeature: true,
                     },
                     {
-                        headerTitle: "HTML Tag Tree Tool",
+                        headerTitle: "HTML Tag Tree",
                         content: <HtmlTagTreeTool />,
+                        premiumFeature: true,
+                    },
+                    {
+                        headerTitle: "Settings",
+                        content: <Settings />,
+                        premiumFeature: false,
                     },
                 ]}
                 activeIndexes={[]}
