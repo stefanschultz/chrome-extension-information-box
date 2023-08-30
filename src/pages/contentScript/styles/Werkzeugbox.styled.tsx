@@ -33,7 +33,6 @@ export const WerkzeugboxHeader = styled.div`
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    /* background-color: rgba(242, 242, 242, 0.85); */
     background-color: rgba(0, 57, 128, 0.85);
     color: rgba(255, 255, 255, 1);
     border-top-left-radius: 0.5rem;
