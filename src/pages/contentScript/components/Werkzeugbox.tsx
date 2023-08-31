@@ -28,7 +28,6 @@ import ScreenTool from "./ScreenTool";
 import Settings from "./Settings";
 
 const Werkzeugbox = () => {
-    const [isDragging, setIsDragging] = useState(false);
     const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
     const [left, setLeft] = useState("2rem");
     const [top, setTop] = useState("2rem");
@@ -48,7 +47,6 @@ const Werkzeugbox = () => {
     }, []);
 
     const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-        setIsDragging(true);
         setDragOffset({
             x: event.clientX - event.currentTarget.offsetLeft,
             y: event.clientY - event.currentTarget.offsetTop,
@@ -58,14 +56,10 @@ const Werkzeugbox = () => {
     const handleMouseMove = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
-        if (isDragging) {
+        if (event.buttons === 1) {
             setLeft(`${event.clientX - dragOffset.x}px`);
             setTop(`${event.clientY - dragOffset.y}px`);
         }
-    };
-
-    const handleMouseUp: React.MouseEventHandler<HTMLDivElement> = () => {
-        setIsDragging(false);
     };
 
     const handleCloseExtension = () => {
@@ -92,7 +86,6 @@ const Werkzeugbox = () => {
         <WerkzeugboxContainer
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
             left={left}
             top={top}
         >
