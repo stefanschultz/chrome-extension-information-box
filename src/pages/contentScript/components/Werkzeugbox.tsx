@@ -1,4 +1,12 @@
 import ExtPay from "extpay";
+import {
+    Keyboard,
+    Monitor,
+    Mouse,
+    SettingsOption,
+    TextAlignLeft,
+    Tree,
+} from "grommet-icons";
 import React, { useEffect, useState } from "react";
 import { Configuration } from "../constants/Config";
 import { SubscriptionStatus } from "../constants/ExtensionPayConstants";
@@ -127,31 +135,37 @@ const Werkzeugbox = () => {
                 }
                 accordionItems={[
                     {
+                        icon: <Monitor size="small" />,
                         headerTitle: "Screen",
                         content: <ScreenTool />,
                         premiumFeature: false,
                     },
                     {
+                        icon: <Mouse size="small" />,
                         headerTitle: "Mouse",
                         content: <MouseTool />,
                         premiumFeature: false,
                     },
                     {
+                        icon: <Keyboard size="small" />,
                         headerTitle: "Keyboard",
                         content: <KeyboardTool />,
                         premiumFeature: false,
                     },
                     {
+                        icon: <TextAlignLeft size="small" />,
                         headerTitle: "HTML Meta Tag Analyzer",
                         content: <HtmlMetaTagAnalyzerTool url={document.URL} />,
                         premiumFeature: true,
                     },
                     {
+                        icon: <Tree size="small" />,
                         headerTitle: "HTML Tag Tree",
                         content: <HtmlTagTreeTool />,
                         premiumFeature: true,
                     },
                     {
+                        icon: <SettingsOption size="small" />,
                         headerTitle: "Settings",
                         content: <Settings />,
                         premiumFeature: false,

@@ -4,11 +4,13 @@ import {
     AccordionContent,
     AccordionHeader,
     AccordionIcon,
+    AccordionIconCollapse,
     AccordionItem,
     AccordionTitle,
 } from "../styles/Accordion.styled";
 
 interface IAccordionItem {
+    icon?: React.ReactNode;
     headerTitle: string;
     content: React.ReactNode;
     premiumFeature: boolean;
@@ -42,6 +44,9 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
                             onClick={() => handleToggleAccordion(index)}
                         >
                             <span>
+                                {item.icon && (
+                                    <AccordionIcon>{item.icon}</AccordionIcon>
+                                )}
                                 <AccordionTitle>
                                     {item.headerTitle}
                                 </AccordionTitle>
@@ -50,11 +55,11 @@ const Accordion: React.FC<IAccordionProps> = (props) => {
                                     <i> [PREMIUM FEATURE]</i>
                                 ) : undefined}
                             </span>
-                            <AccordionIcon
+                            <AccordionIconCollapse
                                 isRotate={activeIndexes.includes(index)}
                             >
                                 &#x25BC;
-                            </AccordionIcon>
+                            </AccordionIconCollapse>
                         </AccordionHeader>
                         <AccordionContent
                             isCollapsed={!activeIndexes.includes(index)}

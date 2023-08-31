@@ -19,11 +19,15 @@ export const AccordionHeader = styled.div`
     position: relative;
 `;
 
+export const AccordionIcon = styled.span`
+    margin-right: 0.5rem;
+`;
+
 export const AccordionTitle = styled.span`
     color: rgba(0, 57, 128, 1);
 `;
 
-export const AccordionIcon = styled.span<{ isRotate: boolean }>`
+export const AccordionIconCollapse = styled.span<{ isRotate: boolean }>`
     position: absolute;
     top: 50%;
     right: 10px;
