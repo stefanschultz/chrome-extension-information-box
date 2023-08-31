@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PrimaryGreenButton, PrimaryOrangeButton } from "./Common.styled";
 
 export const StyledPre = styled.pre`
     font-family: monospace;
@@ -40,26 +41,12 @@ export const Value = styled.span`
     color: #690;
 `;
 
-export const Button = styled.button`
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+export const CopyButton = styled(PrimaryGreenButton)`
+    margin: 0.5rem 0 0.5rem 0;
+`;
 
-    &:hover {
-        background-color: #3e8e41;
-    }
-
-    &:active {
-        background-color: #3e8e41;
-    }
+export const RefreshButton = styled(PrimaryOrangeButton)`
+    margin: 0.5rem 0 0.5rem 0.5rem;
 `;
 
 export const SuccessMessage = styled.div`

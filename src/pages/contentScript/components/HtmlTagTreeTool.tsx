@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
     Attribute,
-    Button,
+    CopyButton,
+    RefreshButton,
     SearchBar,
     Spinner,
     StyledPre,
@@ -23,20 +24,21 @@ const HtmlTagTree: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        const fetchHtml = async () => {
-            const response = await fetch(window.location.href);
-            const html = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, "text/html");
-            const htmlTag = doc.querySelector("html");
-            if (htmlTag) {
-                const tagTree = parseTagTree(htmlTag);
-                setTagTree(tagTree);
-                setLoading(false);
-            }
-        };
         fetchHtml();
     }, []);
+
+    const fetchHtml = async () => {
+        const response = await fetch(window.location.href);
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const htmlTag = doc.querySelector("html");
+        if (htmlTag) {
+            const tagTree = parseTagTree(htmlTag);
+            setTagTree(tagTree);
+            setLoading(false);
+        }
+    };
 
     const parseTagTree = (element: Element): ITag[] => {
         const children = Array.from(element.children);
@@ -104,6 +106,10 @@ const HtmlTagTree: React.FC = () => {
         });
     };
 
+    const handleRefresh = () => {
+        fetchHtml();
+    };
+
     const handleSearchQueryChange = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
@@ -124,9 +130,15 @@ const HtmlTagTree: React.FC = () => {
 
     return (
         <>
-            <Button onClick={handleCopyToClipboard} title="Copy to Clipboard">
+            <CopyButton
+                onClick={handleCopyToClipboard}
+                title="Copy to Clipboard"
+            >
                 Copy to Clipboard
-            </Button>
+            </CopyButton>
+            <RefreshButton onClick={handleRefresh} title="Copy to Clipboard">
+                Refresh
+            </RefreshButton>
             {copySuccess && (
                 <SuccessMessage>Tag tree copied to clipboard!</SuccessMessage>
             )}
