@@ -15,12 +15,5 @@
     },
     "background": {
         "service_worker": "background.bundle.js"
-    },
-    "content_scripts": [
-        {
-            "matches": ["https://extensionpay.com/*"],
-            "js": ["contentScript.bundle.js"],
-            "run_at": "document_start"
-        }
-    ]
+    }
 }
