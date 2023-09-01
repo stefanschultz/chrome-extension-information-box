@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Werkzeugbox",
-    "description": "The Chrome Extension Werkzeugbox is a small tool that helps you to get displayed useful information and use small tools in your Browser.",
+    "description": "The extension Werkzeugbox is a small tool that helps you to get displayed useful information and use small tools in your Browser.",
     "version": "1.0.0",
     "action": {
         "default_title": "Werkzeugbox",
